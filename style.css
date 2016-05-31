@@ -1,11 +1,12 @@
 /* Initial body */
 body {
   left: 0;
+  width: 1200px;
   margin: 0;
-  overflow: hidden;
+  overflow: scroll;
   position: relative;
-  background-image:url(http://www.ruffiangames.com/wp-content/uploads/2015/11/maxresdefault.jpg);
-  background-size:100%;
+  background-image:url(http://www.legitreviews.com/wp-content/uploads/2014/05/twitch-tv-logo.jpg);
+  background-size:cover;
    background-repeat: no-repeat;
 }
 
@@ -32,6 +33,7 @@ body {
   height: 100%;
   position: fixed;
   width: 285px;
+  z-index: 10;
 }
 
 .menu .openMenu {
@@ -237,11 +239,90 @@ input::-webkit-input-placeholder {
   -o-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
 }
+/*If your original class has lesser transition timing, it will produce shadow fade effect something I discovered accidentally*/
 
 .player {
   display:block;
   position: relative;
-  border: 2px solid black;
-  z-index:10;
   color: black;
+  width: 120px;
+  height: 500px;
+  text-align:center;
+  float:left;
+  font-weight:bold;
+  -webkit-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  
+  background: -webkit-linear-gradient( rgba(88,32,119, 0.9), rgba(255,255,255, 0.5) , rgba(83,83,83, 0.9));
+    background: -moz-linear-gradient( rgba(88,32,119, 0.9), rgba(255,255,255, 0.5) , rgba(83,83,83, 0.9));
+    background: -o-linear-gradient( rgba(88,32,119, 0.9), rgba(255,255,255, 0.5) , rgba(83,83,83, 0.9));
+    background: linear-gradient( rgba(88,32,119, 0.9), rgba(255,255,255, 0.5) , rgba(83,83,83, 0.9));
 }
+
+.player img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 20% 20% 10px 20%;
+}
+
+
+.closed {
+   background: -webkit-linear-gradient( rgba(169,23,23, 0.9), rgba(255,255,255, 0.5) , rgba(83,83,83, 0.9));
+    background: -moz-linear-gradient( rgba(169,23,23, 0.9), rgba(255,255,255, 0.5) , rgba(83,83,83, 0.9));
+    background: -o-linear-gradient( rgba(169,23,23, 0.9), rgba(255,255,255, 0.5) , rgba(83,83,83, 0.9));
+    background: linear-gradient( rgba(169,23,23, 0.9), rgba(255,255,255, 0.5) , rgba(83,83,83, 0.9));
+}
+
+.player .status {
+  margin-top:300px;
+}
+
+.online:hover{
+   background: linear-gradient( rgb(88,32,119), rgb(83,83,83));
+  transition: all 1s ease;
+  transform: scale(1.1,1.1);
+  border-radius:1em;
+  z-index:11;
+}
+
+.offline:hover{
+     background: linear-gradient( rgb(88,32,119), rgb(83,83,83));
+  transition: all 1s ease;
+  transform: scale(1.1,1.1);
+  border-radius:1em;
+  z-index:11;
+}
+/*loader body*/
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid green;
+  border-bottom: 16px solid yellow;
+  border-top: 16px solid red;
+  border-top: 16px solid blue;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>	
 	<html lang="en">	    
 		<head>	        
@@ -16,6 +16,7 @@
                                 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->  
                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
                                 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+                                <script src="script.js" type="text/javaScript"></script>
                                
 						<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->	                        
 						<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->	                        
@@ -26,44 +27,41 @@
 						
 					</head>	    
 					<body>
-						<!-- First time attempt to create a sliding menu/ loader/ hamburger bar-->
+						<!-- First time attempt to create a sliding menu/ hamburger bar-->
 
-						<div class="menu">
-						  <!-- Menu & search -->
-						  <form>
-						    <input type="search" placeholder="Search">
-						  </form>
-						  <ul>
-						    <li class="hvr-underline-from-left"><a href="#all" data-toggle="pill">All &nbsp&nbsp &nbsp &nbsp </a></li>
-						    <li class="hvr-underline-from-left"><a href="#online" data-toggle="pill">Online</a></li>
-						    <li class="hvr-underline-from-left"><a href="#offline" data-toggle="pill">Offline</a></li>
-						  </ul>
-						</div>
+			<div class="menu">
+			  <!-- Menu & search -->
+			  <form role="form">
+			    <input type="search" id="search" class="form-action" placeholder="Search">
+			  </form>
+			  <ul>
+			    <li class="hvr-underline-from-left"><a href="#all" data-toggle="pill">All &nbsp&nbsp &nbsp &nbsp </a></li>
+			    <li class="hvr-underline-from-left"><a href="#online" data-toggle="pill">Online</a></li>
+			    <li class="hvr-underline-from-left"><a href="#offline" data-toggle="pill">Offline</a></li>
+			  </ul>
+			</div>
 
-						<!-- Main body -->
-						<div class="container-fluid">
-						  <div class="main">
-						  <div class="icon-menu">
-						    <div id="nav-icon">
-						      <span></span>
-						      <span></span>
-						      <span></span>
-						      <span></span>
-						    </div>
-						  </div>
-						  </div>
+			<!-- Main body -->
+			<div class="container-fluid">
+			  <div class="main">
+			  <div class="icon-menu">
+			    <div id="nav-icon">
+			      <span></span>
+			      <span></span>
+			      <span></span>
+			      <span></span>
+			    </div>
+			  </div>
+			  </div>
 
-						<div class="tab-content">
-						  <div id="all" class="tab-pane">
-						chicken
-						  </div>
-						  <div id="online" class="tab-pane">
-						duck
-						  </div>
-						  <div id="offline" class="tab-pane">
-						pork
-						  </div>
-						</div>
-						</div>
+			<div class="tab-content">
+			  <div id="all" class="tab-pane active">
+			  </div>
+			  <div id="online" class="tab-pane">
+			  </div>
+			  <div id="offline" class="tab-pane">
+			  </div>
+			</div>
+			</div>
 	</body>	
 </html>

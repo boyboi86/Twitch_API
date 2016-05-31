@@ -28,8 +28,9 @@ $(document).ready(function() {
 
   // Ajax for Twitch
 
-  var dname = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas","brunofin","comster404"];
+  var dname = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "brunofin", "comster404"];
 
+  /*Creating player object*/
   //MUST include ?callback=? cause in other APIs I played with there is no other way you can otherwise define a callback in your data, so you can omit everything within a querystring except callback
 
   // you can also use for (var i in dname)
@@ -41,84 +42,41 @@ $(document).ready(function() {
       url: url,
       dataType: 'jsonp',
       data: {},
-      method:'Get',
-      success: function(data){
-          /*Creating player object*/
- function player(display_name, logo, status, gameInfo){
-
-   this.display_name = display_name;
-   this.status = status;
-   this.gameInfo = gameInfo;
-   this.logo = logo;
-
-
-   console.log(status);
- };
+      method: 'GET',
+      success: function(data) {
+        console.log(data);
+        /*Determine player's Acc status*/
+        /*try not to do the below code, I'm just lazy, I'll remake another version using angularjs hint: you need 2 calls to get logo/details/name even for offline mode*/
+        if (data.status == 422) {
+          $('#all').append("<div class='player closed'>" + "<div class='img'>" + "<img src='https://cdn1.iconfinder.com/data/icons/simple-icons/2048/twitch-2048-black.png'>" + "</div>" + "<div class='name'>" + data.message.slice(9, 17) + "</div>" + "<div class='status'>" + 'Account Closed' + "</div>" + "</div>")
+        } else if (data.stream == undefined || data.stream == null) {
+          $('#all, #offline').append("<div class='player offline'>" + "<div class='img'>" + "<img src='https://d1qb2nb5cznatu.cloudfront.net/startups/i/114142-19c0993bf69c468f1350fd422bfad6b2-medium_jpg.jpg?buster=1410211530'>" + "</div>" + "<div class='name'>" + data._links.channel.substring(38) + "</div>" + "<div class='status' style='color:red;'>" + 'offline' + "</div>" + "</div>")
+        } else {
+          $('#all, #online').append('<a href="' + data.stream.channel.url + '" target="_blank">' + "<div class='player online'>" + "<div class='img'>" + "<img src='" + data.stream.channel.logo + "'>" + "</div>" + "<div class='name'>" + data.stream.channel.name + "</div>" + "<div class='status' style='color:green;'>" + 'online' + "</div>" + "<div class=game>" + data.stream.channel.game + "</div>" + "</div>" + "</a>")
+        };
       },
-      error:function(err){
-    console.log(err);
-  }
+      /*closing for ajax*/
+      error: function(err) {
+        console.log(err);
+      }
     });
-  }
- 
- 
-
-
-  /*Determine player's Acc status*/
-  function status(data){
-  if(data.status=='422'){
-  return 'closed';
-  } else if (data.stream== undefined && data.stream == null){
-    return 'offline';
-  } else {
-    return 'online';
   };
-  };
-  
-
-  /*display profile pic depending on player status*/
-
-  function logo(data){
-  if(data.status !=='422') {
-  return data.stream.channel.logo
-  } else {
-  return 'http://image.spreadshirtmedia.com/image-server/v1/designs/1005491480,width=280,height=280?mediaType=png'
-  };
-  }
- /*retrieve game information*/
- function gameInfo(data){
-   return data.stream.channel.game
- }
-
-  /*display player name */
-  function display_name(data) {
-      return data.stream.channel.name
+  //search functionality
+$('#search').keyup(function() {
+  // Get the value of the search box
+  var search = $(this).val().toLowerCase();
+  // Check each user for a match
+  $('.player').each(function() {
+    var result = $(this).text().toLowerCase();
+    // If the search text is found show, otherwise hide.
+    if (result.indexOf(search) !== -1) {
+      $(this).show()
+    } else {
+      $(this).hide();
     }
-  
-
-  /*append details to body*/
-var outString = '';
-  
-  $.each(player, function(i,obj){
-  outString += "<a href=" + '"https://www.twitch.tv/' + obj.display_name + '">'
-outString += "<div class='players'>" + "<div class='logo'>" + obj.logo + "</div>"
-outString += "<div class='display_name'>" + obj.display_name + "</div>"
-outString += "<div class='status'>" + obj.status + "</div>"
-outString += "</div>" + '</a>';
-
-
-$(outString).appendTo('#all');
-if (player.status != 'closed' || status != 'offline') {
-$(outString).appendTo('#online')
-} else if (player.status != 'closed'){
-$(outString).appendTo('#offline')
-}
-
-
   });
-  
-  
-  
+});
+
 
   //body closing 
 });
