@@ -5,7 +5,7 @@ body {
   margin: 0;
   overflow: scroll;
   position: relative;
-  background-image:url(http://www.legitreviews.com/wp-content/uploads/2014/05/twitch-tv-logo.jpg);
+  background-image:url(assets/image/twitch-logo.jpg);
   background-size:cover;
    background-repeat: no-repeat;
 }
@@ -107,7 +107,7 @@ input::-webkit-search-cancel-button {
 }
 /*I couldn't find a perfect purple icon*/
 input[type=search] {
-  background: #2b2b2b url(http://s.jtvnw.net/jtv_user_pictures/hosted_images/GlitchIcon_purple.png) no-repeat 9px center;
+  background: #2b2b2b url(assets/image/Search.png) no-repeat 9px center;
   background-size: 25px;
   border: solid 3px #6441a5;
   padding: 9px 10px 9px 34px;
@@ -295,34 +295,5 @@ input::-webkit-input-placeholder {
   border-radius:1em;
   z-index:11;
 }
-/*loader body*/
-#loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 1;
-  width: 150px;
-  height: 150px;
-  margin: -75px 0 0 -75px;
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid green;
-  border-bottom: 16px solid yellow;
-  border-top: 16px solid red;
-  border-top: 16px solid blue;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-}
 
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
