@@ -48,9 +48,9 @@ $(document).ready(function() {
         /*Determine player's Acc status*/
         /*try not to do the below code, I'm just lazy, I'll remake another version using angularjs hint: you need 2 calls to get logo/details/name even for offline mode*/
         if (data.status == 422) {
-          $('#all').append("<div class='player closed'>" + "<div class='img'>" + "<img src='assets/image/black-icon.png'>" + "</div>" + "<div class='name'>" + data.message.slice(9, 17) + "</div>" + "<div class='status'>" + 'Account Closed' + "</div>" + "</div>")
+          $('#all').append("<div class='player closed'>" + "<div class='img'>" + "<img src='assets/img/black-icon.png'>" + "</div>" + "<div class='name'>" + data.message.slice(9, 17) + "</div>" + "<div class='status'>" + 'Account Closed' + "</div>" + "</div>")
         } else if (data.stream == undefined || data.stream == null) {
-          $('#all, #offline').append("<div class='player offline'>" + "<div class='img'>" + "<img src='assets/image/purple-icon.jpg'>" + "</div>" + "<div class='name'>" + data._links.channel.substring(38) + "</div>" + "<div class='status' style='color:red;'>" + 'offline' + "</div>" + "</div>")
+          $('#all, #offline').append("<div class='player offline'>" + "<div class='img'>" + "<img src='assets/img/purple-icon.jpg'>" + "</div>" + "<div class='name'>" + data._links.channel.substring(38) + "</div>" + "<div class='status' style='color:red;'>" + 'offline' + "</div>" + "</div>")
         } else {
           $('#all, #online').append('<a href="' + data.stream.channel.url + '" target="_blank">' + "<div class='player online'>" + "<div class='img'>" + "<img src='" + data.stream.channel.logo + "'>" + "</div>" + "<div class='name'>" + data.stream.channel.name + "</div>" + "<div class='status' style='color:green;'>" + 'online' + "</div>" + "<div class=game>" + data.stream.channel.game + "</div>" + "</div>" + "</a>")
         };

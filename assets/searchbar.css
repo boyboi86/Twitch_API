@@ -1,0 +1,51 @@
+/*search bar */
+
+input {
+  outline: none;
+  margin: 10px 0 10px 10px;
+  
+}
+input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+  
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+  display: none; 
+}
+/*I couldn't find a perfect purple icon*/
+input[type=search] {
+  background: #2b2b2b url("img/Search.png") no-repeat 9px center;
+  background-size: 25px;
+  border: solid 3px #6441a5;
+  padding: 9px 10px 9px 34px;
+  width: 0px;
+  height:25px;
+  
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+  
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+  cursor:pointer;
+}
+input[type=search]:focus {
+  width: 200px;
+  background-color: #fff;
+  border-color: #582077;
+  cursor:auto;
+}
+
+
+input:-moz-placeholder {
+  color: #999;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+
